@@ -3,10 +3,10 @@ error_reporting(E_ALL);
 
 //session_start();
 
-require_once 'subdriver/db.php';
-require_once '../db/v4_OrderExtras.class.php';
-require_once '../db/v4_Places.class.php';
-require_once '../db/v4_AuthUsers.class.php';
+require_once 'db.php';
+require_once 'OrderExtras.class.php';
+require_once 'Places.class.php';
+require_once 'AuthUsers.class.php';
 
 	function clearTime($time) {
 		$timeUF=explode('T',$time);
