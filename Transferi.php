@@ -1,5 +1,7 @@
 <?
-session_start();
+error_reporting(E_ALL);
+
+//session_start();
 
 require_once 'subdriver/db.php';
 require_once '../db/v4_OrderExtras.class.php';
