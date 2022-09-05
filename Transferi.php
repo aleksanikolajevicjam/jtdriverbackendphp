@@ -1,7 +1,7 @@
 <?
 error_reporting(E_ALL);
 
-//session_start();
+session_start();
 
 require_once 'db.php';
 require_once 'OrderExtras.class.php';
@@ -15,13 +15,13 @@ require_once 'AuthUsers.class.php';
 	}	
 
 	//trenutni vehicle id
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/db/v4_SubActivity.class.php';
+	require_once 'SubActivity.class.php';
 	$sa = new v4_SubActivity();
 	$sak = $sa->getKeysBy('ID', 'desc' , ' WHERE DriverID='. $_SESSION['AuthUserID'] .' AND Approved<>9');
 	if (count($sak)>0) {
 		$sa->getRow($sak[0]);
 		$_SESSION['VehicleID']=$sa->VehicleID;
-		require_once $_SERVER['DOCUMENT_ROOT'] . '/db/v4_SubVehicles.class.php';
+		require_once 'SubVehicles.class.php';
 		$v = new v4_SubVehicles();
 		$v->getRow($_SESSION['VehicleID']);
 		$_SESSION['VehicleTitle']=$v->VehicleDescription;
